@@ -10,24 +10,22 @@ import java.util.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-
 public class NewPlayTypeTests {
 
     private static String loadString(String path) {
         try {
             return new String(Objects.requireNonNull(NewPlayTypeTests.class
-                            .getClassLoader()
-                            .getResourceAsStream(path))
+                    .getClassLoader()
+                    .getResourceAsStream(path))
                     .readAllBytes());
+        } catch (IOException exception) {
+            fail("resource file could not be loaded prior to test executing");
         }
-        catch (IOException exception) {
-                fail("resource file could not be loaded prior to test executing");
-            }
         return "";
     }
 
     @Test
-    public void statementWithNewPlayTypesTest() {
+    public void exampleStatementWithNewPlaysTest() {
         String expected = loadString("ExampleStatementWithNewPlays.txt");
 
         JSONObject a = new JSONObject(loadString("new_plays.json"));
