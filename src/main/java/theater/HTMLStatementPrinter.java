@@ -2,6 +2,9 @@ package theater;
 
 import java.util.Map;
 
+/**
+ * This class generates an HTML statement for a given invoice of performances.
+ */
 public class HTMLStatementPrinter extends StatementPrinter {
 
     public HTMLStatementPrinter(Invoice invoice, Map<String, Play> plays) {
@@ -10,8 +13,8 @@ public class HTMLStatementPrinter extends StatementPrinter {
 
     @Override
     public String statement() {
-        StatementData statementData = getStatementData();
-        StringBuilder result = new StringBuilder(String.format("<h1>Statement for %s</h1>%n",
+        final StatementData statementData = getStatementData();
+        final StringBuilder result = new StringBuilder(String.format("<h1>Statement for %s</h1>%n",
                 statementData.getCustomer()));
         result.append("<table>").append(System.lineSeparator());
         result.append(String.format(" <caption>Statement for %s</caption>%n", statementData.getCustomer()));

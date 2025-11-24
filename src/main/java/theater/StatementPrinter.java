@@ -31,17 +31,17 @@ public class StatementPrinter {
         return renderPlainText(statementData);
     }
 
-    private String renderPlainText(StatementData statementData) {
-        StringBuilder result = new StringBuilder(
-                "Statement for " + statementData.getCustomer() + System.lineSeparator());
-        for (PerformanceData p : statementData.getPerformances()) {
+    private String renderPlainText(StatementData data) {
+        final StringBuilder result = new StringBuilder(
+                "Statement for " + data.getCustomer() + System.lineSeparator());
+        for (PerformanceData p : data.getPerformances()) {
             // print line for this order
             result.append(String.format("  %s: %s (%s seats)%n", p.getName(),
                     usd(p.getAmount()), p.getAudience()));
         }
 
-        result.append(String.format("Amount owed is %s%n", usd(statementData.totalAmount())));
-        result.append(String.format("You earned %s credits%n", statementData.volumeCredits()));
+        result.append(String.format("Amount owed is %s%n", usd(data.totalAmount())));
+        result.append(String.format("You earned %s credits%n", data.volumeCredits()));
         return result.toString();
     }
 

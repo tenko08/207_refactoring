@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Data class for statement information.
+ */
 public class StatementData {
 
     private final String customer;
@@ -18,7 +21,7 @@ public class StatementData {
     }
 
     private PerformanceData createPerformanceData(Performance performance, Play play) {
-        AbstractPerformanceCalculator calculator = AbstractPerformanceCalculator
+        final AbstractPerformanceCalculator calculator = AbstractPerformanceCalculator
                 .createPerformanceCalculator(performance, play);
         return new PerformanceData(performance, play, calculator.getAmount(), calculator.getVolumeCredits());
     }
@@ -31,6 +34,11 @@ public class StatementData {
         return performances;
     }
 
+    /**
+     * Calculates the total amount for the statement.
+     * 
+     * @return the total amount
+     */
     public int totalAmount() {
         int result = 0;
         for (PerformanceData perf : performances) {
@@ -39,6 +47,11 @@ public class StatementData {
         return result;
     }
 
+    /**
+     * Calculates the total volume credits for the statement.
+     * 
+     * @return the total volume credits
+     */
     public int volumeCredits() {
         int result = 0;
         for (PerformanceData perf : performances) {

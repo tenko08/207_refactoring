@@ -1,5 +1,8 @@
 package theater;
 
+/**
+ * Calculator for history performances.
+ */
 public class HistoryCalculator extends AbstractPerformanceCalculator {
 
     public HistoryCalculator(Performance performance, Play play) {

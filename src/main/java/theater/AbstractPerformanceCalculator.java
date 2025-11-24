@@ -1,10 +1,19 @@
 package theater;
 
+/**
+ * Abstract base class for performance calculators.
+ */
 public abstract class AbstractPerformanceCalculator {
 
     private final Performance performance;
     private final Play play;
 
+    /**
+     * Constructor for AbstractPerformanceCalculator.
+     * 
+     * @param performance the performance
+     * @param play        the play
+     */
     public AbstractPerformanceCalculator(Performance performance, Play play) {
         this.performance = performance;
         this.play = play;
@@ -18,6 +27,13 @@ public abstract class AbstractPerformanceCalculator {
         return play;
     }
 
+    /**
+     * Factory method to create a performance calculator.
+     * 
+     * @param performance the performance
+     * @param play        the play
+     * @return the calculator
+     */
     public static AbstractPerformanceCalculator createPerformanceCalculator(Performance performance, Play play) {
         switch (play.getType()) {
             case "tragedy":
@@ -33,8 +49,18 @@ public abstract class AbstractPerformanceCalculator {
         }
     }
 
+    /**
+     * Calculates the amount for the performance.
+     * 
+     * @return the amount
+     */
     public abstract int getAmount();
 
+    /**
+     * Calculates the volume credits for the performance.
+     * 
+     * @return the volume credits
+     */
     public int getVolumeCredits() {
         return Math.max(performance.getAudience() - Constants.BASE_VOLUME_CREDIT_THRESHOLD, 0);
     }

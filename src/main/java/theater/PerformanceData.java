@@ -1,5 +1,8 @@
 package theater;
 
+/**
+ * Data class for performance information.
+ */
 public class PerformanceData {
 
     private final String name;

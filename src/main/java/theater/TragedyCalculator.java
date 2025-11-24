@@ -1,5 +1,8 @@
 package theater;
 
+/**
+ * Calculator for tragedy performances.
+ */
 public class TragedyCalculator extends AbstractPerformanceCalculator {
 
     public TragedyCalculator(Performance performance, Play play) {
